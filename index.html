@@ -3,13 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My website</title>
+    <title>MyCreative Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background-color: #0f0f0f; color: white; font-family: 'Inter', sans-serif; }
-        .gradient-text { background: linear-gradient(90deg, #ff4d4d, #f9cb28); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .card-bg { background: #1a1a1a; border: 1px solid #333; }
+        @import url('httpsp');
+        
+        body { 
+            background-color: #0f0f0f; 
+            color: white; 
+            font-family: 'Inter', sans-serif; 
+            scroll-behavior: smooth;
+        }
+
+        .card-bg { 
+            background: #1a1a1a; 
+            border: 1px solid #333; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+
+        .card-bg:hover { 
+            border-color: #ef4444; 
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(239, 68, 68, 0.1);
+        }
+
+        /* Modal Animation */
+        #details-modal { 
+            display: none; 
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #details-modal.active { 
+            display: flex; 
+            opacity: 1;
+        }
+
+        .modal-content {
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        #details-modal.active .modal-content {
+            transform: scale(1);
+        }
     </style>
 </head>
 <body>
@@ -25,120 +63,135 @@
         
     </nav>
 
-    <header class="text-center py-20 px-4">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-6">
-        This   <span class="text-red-600">website</span> <br>is an early prototype.
+    <header class="text-center py-24 px-4">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
+            This <span class="text-red-600">website</span> <br>is an early prototype.
         </h1>
         <p class="text-gray-400 max-w-2xl mx-auto mb-8 text-lg">
-            This website was created to represent my skills, experience, and research activities.
+            Created to represent my skills in digital craftsmanship and content strategy.
         </p>
-        
     </header>
 
-    <section class="max-w-7xl mx-auto px-8 py-20">
-        <h2 class="text-3xl font-bold mb-12 text-center">My skills</h2>
-       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <section class="max-w-7xl mx-auto px-8 py-10">
+        <h2 class="text-3xl font-bold mb-12 text-center">My Skills</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-  <!-- Card 1 -->
-  <div class="card-bg p-6 rounded-2xl border border-transparent hover:border-red-500 transition-all cursor-pointer">
-    <div class="h-60 bg-gray-800 rounded-xl mb-4 overflow-hidden">
-      <img src="1.png" class="w-full h-full object-cover" alt="small website development">
+            <div onclick="openModal('Web Development', 'I create lightning-fast, SEO-optimized websites for startups and personal brands. Using React and Tailwind, I ensure your site looks great on every screen.', '1.png', 'contact.html')" class="card-bg p-6 rounded-3xl cursor-pointer">
+                <div class="h-52 bg-gray-800 rounded-2xl mb-4 overflow-hidden">
+                    <img src="1.png" class="w-full h-full object-cover" alt="Web Dev">
+                </div>
+                <h3 class="font-bold text-xl mb-2">Website Development</h3>
+                <p class="text-gray-400 text-sm">Clean, fast, small websites for portfolios and businesses.</p>
+            </div>
+
+            <div onclick="openModal('Script Writing', 'I write high-retention scripts for YouTube and Social Media. My focus is on storytelling that keeps viewers hooked until the very last second.', '2.png', 'contact.html')" class="card-bg p-6 rounded-3xl cursor-pointer">
+                <div class="h-52 bg-gray-800 rounded-2xl mb-4 overflow-hidden">
+                    <img src="2.png" class="w-full h-full object-cover" alt="Scripting">
+                </div>
+                <h3 class="font-bold text-xl mb-2">Script Writing</h3>
+                <p class="text-gray-400 text-sm">Find content that is outperforming and create viral hooks.</p>
+            </div>
+
+            <div onclick="openModal('Thumbnail Design', 'Visual identity is everything. I design high-CTR thumbnails using psychological color theory to increase your views by up to 40%.', '3.png', 'contact.html')" class="card-bg p-6 rounded-3xl cursor-pointer">
+                <div class="h-52 bg-gray-800 rounded-2xl mb-4 overflow-hidden">
+                    <img src="3.png" class="w-full h-full object-cover" alt="Design">
+                </div>
+                <h3 class="font-bold text-xl mb-2">Thumbnail Design</h3>
+                <p class="text-gray-400 text-sm">High-CTR thumbnails designed for YouTube and social platforms.</p>
+            </div>
+
+            <div onclick="openModal('Video Editing', 'From cinematic b-roll to fast-paced TikTok edits. I handle sound design, color grading, and motion graphics to make your content pop.', '4.png', 'contact.html')" class="card-bg p-6 rounded-3xl cursor-pointer">
+                <div class="h-52 bg-gray-800 rounded-2xl mb-4 overflow-hidden">
+                    <img src="4.png" class="w-full h-full object-cover" alt="Editing">
+                </div>
+                <h3 class="font-bold text-xl mb-2">Video Editing</h3>
+                <p class="text-gray-400 text-sm">Professional editing optimized for retention and clarity.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="details-modal" class="fixed inset-0 z-[100] items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-md" onclick="closeModal()"></div>
+        
+        <div class="modal-content bg-zinc-900 border border-gray-700 w-full max-w-2xl rounded-[2rem] p-8 md:p-12 relative z-10 shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white transition">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            
+            <div class="w-full h-72 bg-gray-800 rounded-2xl mb-8 overflow-hidden">
+                <img id="modal-img" src="" class="w-full h-full object-cover">
+            </div>
+            
+            <h2 id="modal-title" class="text-4xl font-extrabold mb-4 text-white"></h2>
+            <p id="modal-desc" class="text-gray-400 text-lg leading-relaxed mb-10"></p>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a id="modal-link" href="#" class="text-center bg-red-600 hover:bg-red-700 text-white px-10 py-4 rounded-2xl font-bold text-lg transition-all transform active:scale-95">
+                    Work With Me
+                </a>
+                <button onclick="closeModal()" class="px-10 py-4 rounded-2xl font-bold text-lg border border-gray-600 hover:bg-gray-800 transition">
+                    Go Back
+                </button>
+            </div>
+        </div>
     </div>
-    <h3 class="font-bold text-xl mb-2">Small website development</h3>
-    <p class="text-gray-400 text-sm">
-         Clean, fast, small websites for portfolios and businesses.
-  
-    </p>
-  </div>
 
-  <!-- Card 2 -->
-  <div class="card-bg p-6 rounded-2xl border border-transparent hover:border-red-500 transition-all cursor-pointer">
-    <div class="h-70 bg-gray-800 rounded-xl mb-4 overflow-hidden">
-      <img src="2.png" class="w-full h-full object-cover" alt="Video Editing">
-    </div>
-    <h3 class="font-bold text-xl mb-2">script writing</h3>
-    <p class="text-gray-400 text-sm">
+    <footer class="mt-20 border-t border-gray-800 py-12 px-8 text-center text-gray-500">
+        <p>© 2026 DIPTO. All Rights Reserved.</p>
+        </div>
+       
+<div class="flex space-x-4 text-2xl">
+    <a href="https://www.facebook.com/dipto6466463637" target="_blank" class="hover:text-blue-600 transition">
+        <i class="fab fa-facebook"></i>
+    </a>
 
-          Find content that is outperforming related to what your videos should be.
-    </p>
-  </div>
+    <a href="https://www.youtube.com/channel/UCuHk4gDbYCdeVcWgDx1VsfQ" target="_blank" class="hover:text-red-600 transition">
+        <i class="fab fa-youtube"></i>
+    </a>
 
-  <!-- Card 3 -->
-  <div class="card-bg p-6 rounded-2xl border border-transparent hover:border-red-500 transition-all cursor-pointer">
-    <div class="h-70 bg-gray-800 rounded-xl mb-4 overflow-hidden">
-      <img src="3.png" class="w-full h-full object-cover" alt="Thumbnail Design">
-    </div>
-    <h3 class="font-bold text-xl mb-2">Thumbnail Design</h3>
-    <p class="text-gray-400 text-sm">
-      High-CTR thumbnails designed for YouTube and social platforms.
-    </p>
-  </div>
-
-  <!-- Card 4 -->
-  <div class="card-bg p-6 rounded-2xl border border-transparent hover:border-red-500 transition-all cursor-pointer">
-    <div class="h-70 bg-gray-800 rounded-xl mb-4 overflow-hidden">
-      <img src="4.png" class="w-full h-full object-cover" alt="Website Creation">
-    </div>
-    <h3 class="font-bold text-xl mb-2">Video editing</h3>
-    <p class="text-gray-400 text-sm">
-           Professional editing optimized for retention and clarity.
-    </p>
-  </div>
-
+    <a href="https://www.instagram.com/dipto5493/" target="_blank" class="hover:text-pink-500 transition">
+        <i class="fab fa-instagram"></i>
+    </a>
 </div>
 
-    </section>
+    </footer>
 
-    <section class="bg-zinc-900 py-24">
-        <div class="max-w-5xl mx-auto px-8 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-5xl font-black mb-6"> </h2>
-                <div class="text-4xl font-bold mb-8"> <span class="text-lg text-gray-400"> My skills & experience :</span></div>
-                <ul class="space-y-4 text-gray-300">
-                    <li><i class="fas fa-check text-red-500 mr-2"></i>  small website development</li>
-                    <li><i class="fas fa-check text-red-500 mr-2"></i>script writing </li>
-                    <li><i class="fas fa-check text-red-500 mr-2"></i>  Thumbnail designing</li>
-                    <li><i class="fas fa-check text-red-500 mr-2"></i> Video editing </li>
-                </ul>
-             
-            </div>
-            <div class="border-l border-gray-700 pl-12 hidden md:block">
-                <h3 class="text-2xl font-bold mb-4">Business</h3>
-                <p class="text-gray-400 mb-6">For script writing, video editing, thumbnail designing, and small website development.</p>
-                <button class="border border-white px-6 py-2 rounded-lg">contact us</button>
-            </div>
-        </div>
-    </section>
+    <script>
+        function openModal(title, description, imgSrc, pageUrl) {
+            const modal = document.getElementById('details-modal');
+            const mTitle = document.getElementById('modal-title');
+            const mDesc = document.getElementById('modal-desc');
+            const mImg = document.getElementById('modal-img');
+            const mLink = document.getElementById('modal-link');
 
-    <section class="max-w-3xl mx-auto py-20 px-8">
-        <h2 class="text-3xl font-bold mb-10 text-center">FAQ</h2>
-        <div class="space-y-4">
-            <div class="border-b border-gray-800 pb-4">
-                <button class="flex justify-between w-full font-bold text-left">Improvements since the last update <i class="fas fa-plus"></i></button>
-            </div>
-            <div class="border-b border-gray-800 pb-4">
-                <button class="flex justify-between w-full font-bold text-left">My plan for future update <i class="fas fa-plus"></i></button>
-            </div>
-        </div>
-    </section>
+            mTitle.innerText = title;
+            mDesc.innerText = description;
+            mImg.src = imgSrc;
+            
+            // This line sets the "Work With Me" button to open the pageUrl
+            mLink.href = pageUrl; 
 
-    <footer class="bg-black border-t border-gray-800 py-12 px-8">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-xl font-bold italic"> <img src="dipto.png"alt="Description" width="200" height="2
-  00"> <span class="text-red-600"> </span></div>
-            <div class="flex space-x-6 text-gray-500 text-sm">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
-                <a href="#">Affiliate</a>
-            </div>
-            <div class="flex space-x-4">
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-youtube"></i>
-                <i class="fab fa-discord"></i>
-            </div>
-        </div>
-        <p class="text-center text-gray-600 text-xs mt-10">© 2026  All Rights Reserved.</p>
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Stop scrolling background
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('details-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        }
+
+        // Close modal if 'Escape' key is pressed
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+    
+</body>
+</html>
     </footer>
 
 </body>
+
 </html>
