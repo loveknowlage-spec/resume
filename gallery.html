@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thumbnail Gallery | DIPTO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        
+        body { 
+            background-color: #0f0f0f; 
+            color: white; 
+            font-family: 'Inter', sans-serif; 
+        }
+
+        .thumb-container {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Perfect 1280x720 proportions */
+            overflow: hidden;
+            border-radius: 1rem;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .thumb-container:hover {
+            border-color: #ef4444;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="p-8 md:p-16">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
+            <div>
+                <h1 class="text-4xl font-extrabold tracking-tight">Thumbnail <span class="text-red-600">Portfolio</span></h1>
+                <p class="text-gray-500 mt-2">A showcase of high-CTR visual designs.</p>
+            </div>
+            <a href="index.html" class="px-8 py-3 bg-zinc-800 hover:bg-zinc-700 rounded-2xl font-semibold transition active:scale-95">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Home
+            </a>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+            
+            <div class="flex flex-col gap-3">
+                <div class="thumb-container">
+                    <img src="thumb1.jpg" class="w-full h-full object-cover" alt="Design 1">
+                </div>
+                <p class="text-gray-400 text-sm font-medium ml-1">01. Educational Concept</p>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <div class="thumb-container">
+                    <img src="thumb2.jpg" class="w-full h-full object-cover" alt="Design 2">
+                </div>
+                <p class="text-gray-400 text-sm font-medium ml-1">02. Entertainment Layout</p>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <div class="thumb-container">
+                    <img src="thumb3.jpg" class="w-full h-full object-cover" alt="Design 3">
+                </div>
+                <p class="text-gray-400 text-sm font-medium ml-1">03. Professional Branding</p>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <div class="thumb-container">
+                    <img src="thumb4.jpg" class="w-full h-full object-cover" alt="Design 4">
+                </div>
+                <p class="text-gray-400 text-sm font-medium ml-1">04. Viral Hook Design</p>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <div class="thumb-container">
+                    <img src="thumb5.jpg" class="w-full h-full object-cover" alt="Design 5">
+                </div>
+                <p class="text-gray-400 text-sm font-medium ml-1">05. Gaming Series</p>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <div class="thumb-container">
+                    <img src="thumb6.jpg" class="w-full h-full object-cover" alt="Design 6">
+                </div>
+                <p class="text-gray-400 text-sm font-medium ml-1">06. Documentary Style</p>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <div class="thumb-container">
+                    <img src="thumb7.jpg" class="w-full h-full object-cover" alt="Design 7">
+                </div>
+                <p class="text-gray-400 text-sm font-medium ml-1">07. Tech Review</p>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <div class="thumb-container">
+                    <img src="thumb8.jpg" class="w-full h-full object-cover" alt="Design 8">
+                </div>
+                <p class="text-gray-400 text-sm font-medium ml-1">08. Podcast Cover</p>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <div class="thumb-container">
+                    <img src="thumb9.jpg" class="w-full h-full object-cover" alt="Design 9">
+                </div>
+                <p class="text-gray-400 text-sm font-medium ml-1">09. Business Strategy</p>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <div class="thumb-container">
+                    <img src="thumb10.jpg" class="w-full h-full object-cover" alt="Design 10">
+                </div>
+                <p class="text-gray-400 text-sm font-medium ml-1">10. Lifestyle Vlogs</p>
+            </div>
+
+        </div>
+
+        <footer class="mt-24 pb-12 text-center border-t border-zinc-800 pt-8">
+            <p class="text-zinc-500">© 2026 DIPTO. All work is original.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
