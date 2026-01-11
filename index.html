@@ -258,6 +258,36 @@ Creative video editor and thumbnail designer with strong experience in creating 
 
 </div>
 </section>
+<div id="desktop-suggestion" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #222; color: #fff; padding: 15px 25px; border-radius: 12px; z-index: 10000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); font-family: system-ui, -apple-system, sans-serif; align-items: center; width: 85%; max-width: 400px; justify-content: space-between; transition: opacity 1s ease;">
+    <span style="font-size: 14px; line-height: 1.4;">💻 For the best experience, use <strong>Desktop Mode</strong>.</span>
+    <button onclick="closeSuggestion()" style="background: none; border: none; color: #aaa; font-size: 24px; cursor: pointer; padding: 0 0 0 15px;">&times;</button>
+</div>
+
+<script>
+    const suggestionBox = document.getElementById('desktop-suggestion');
+
+    function closeSuggestion() {
+        suggestionBox.style.opacity = '0'; // Start fade out
+        setTimeout(() => {
+            suggestionBox.style.display = 'none'; // Fully remove after fade
+        }, 1000); 
+    }
+
+    function checkDevice() {
+        // Show only if screen width is less than 1024px
+        if (window.innerWidth < 1024) {
+            suggestionBox.style.display = 'flex';
+            suggestionBox.style.opacity = '1';
+
+            // Auto-hide after 15 seconds (15000 milliseconds)
+            setTimeout(() => {
+                closeSuggestion();
+            }, 15000);
+        }
+    }
+
+    window.onload = checkDevice;
+</script>
 
 <div id="details-modal" class="fixed inset-0 z-[100] items-center justify-center p-4">
     <div class="absolute inset-0 bg-black/95 backdrop-blur-md" onclick="closeModal()"></div>
@@ -473,6 +503,7 @@ function closeModal() {
 
 </body>
 </html>
+
 
 
 
